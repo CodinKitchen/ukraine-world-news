@@ -32,7 +32,7 @@ class GenerateScreenshotsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         foreach ($this->medias as $media) {
-            $process = new Process(['pageres', $media->getUrl(), '--css=' . $media->getCustomCss(), '--crop', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $media->getLocale())]);
+            $process = new Process(['node_modules/.bin/pageres', $media->getUrl(), '--css=' . $media->getCustomCss(), '--crop', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $media->getLocale())]);
             $process->run();
 
             if (!$process->isSuccessful()) {
@@ -43,7 +43,7 @@ class GenerateScreenshotsCommand extends Command
                 if ($locale === $media->getLocale()) {
                     continue;
                 }
-                $process = new Process(['pageres', 'https://translate.google.com/translate?sl='.$media->getLocale().'&tl='.$locale.'&u=' . $media->getUrl(), '--css=' . $media->getCustomCss(), '--crop', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $locale)]);
+                $process = new Process(['node_modules/.bin/pageres', 'https://translate.google.com/translate?sl=' . $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl(), '--css=' . $media->getCustomCss(), '--crop', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $locale)]);
                 $process->run();
 
                 if (!$process->isSuccessful()) {

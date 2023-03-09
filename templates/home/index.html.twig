@@ -3,5 +3,7 @@
 {% block title %}Anti Propaganda !{% endblock %}
 
 {% block body %}
-
+{% for media in medias %}
+   <img src="captures/{{media.filename|format('fr') ~ '.png' }}"> 
+{% endfor %}
 {% endblock %}
