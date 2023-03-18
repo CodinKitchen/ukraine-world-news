@@ -5,7 +5,10 @@
         "@hotwired/stimulus": "^3.0.0",
         "@symfony/stimulus-bridge": "^3.2.0",
         "@symfony/webpack-encore": "^4.0.0",
+        "autoprefixer": "^10.4.14",
         "core-js": "^3.23.0",
+        "postcss": "^8.4.21",
+        "postcss-loader": "^7.1.0",
         "regenerator-runtime": "^0.13.9",
         "tailwindcss": "^3.2.7",
         "webpack": "^5.74.0",
@@ -21,6 +24,9 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "pageres-cli": "^7.0.0"
+        "daisyui": "^2.51.4",
+        "flag-icons": "^6.6.6",
+        "pageres-cli": "^7.0.0",
+        "swiper": "^9.1.1"
     }
 }

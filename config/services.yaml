@@ -8,6 +8,8 @@ parameters:
         - fr
         - en
         - ru
+        - zh
+        - de
 
 services:
     # default configuration for services in *this* file

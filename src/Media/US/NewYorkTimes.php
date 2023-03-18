@@ -1,14 +1,19 @@
 <?php
 
-namespace App\Media\RUS;
+namespace App\Media\US;
 
 use App\Media\MediaInterface;
 
-class Sputnik implements MediaInterface
+class NewYorkTimes implements MediaInterface
 {
+    public function getName(): string
+    {
+        return 'The New York Times';
+    }
+
     public static function getUrl(): string
     {
-        return 'https://sputniknews.com/russian-special-military-op-in-ukraine/';
+        return 'https://www.nytimes.com/topic/destination/ukraine';
     }
 
     public static function getLocale(): string
@@ -18,13 +23,13 @@ class Sputnik implements MediaInterface
 
     public static function getCountry(): string
     {
-        return 'RUS';
+        return 'US';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #iubenda-cs-banner, iframe {
+            .gdpr, iframe {
                 display: none!important
             }
             body {
@@ -35,6 +40,6 @@ class Sputnik implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'sputnik_%s';
+        return 'new_york_times_%s';
     }
 }

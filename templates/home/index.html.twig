@@ -1,9 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Anti Propaganda !{% endblock %}
-
-{% block body %}
-{% for media in medias %}
-   <img src="captures/{{media.filename|format('fr') ~ '.png' }}"> 
-{% endfor %}
+{% block content %}
+	<div data-controller="swiper" class="swiper">
+		<div class="swiper-wrapper">
+			{% for country, medias in mediasByCountry %}
+				{% set selectedMedia = random(medias|length - 1) %}
+				<div class="shadow-xl card bg-base-100 swiper-slide" data-controller="media-selector">
+					<div class="card-body">
+						<span class="fi fi-{{ country|lower }}"></span>
+						<select data-media-selector-target="selector" class="w-full max-w-xs select">
+							{% for index, media in medias %}
+								<option {{ selectedMedia == index ? 'selected' }} value="{{ media.filename|format(app.request.locale) }}">{{ media.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<figure><img data-media-selector-target="capture" src="/captures/{{medias[selectedMedia].filename|format(app.request.locale) ~ '.png' }}"></figure>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
 {% endblock %}

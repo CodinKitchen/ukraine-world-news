@@ -1,30 +1,35 @@
 <?php
 
-namespace App\Media\FRA;
+namespace App\Media\RU;
 
 use App\Media\MediaInterface;
 
-class LeMonde implements MediaInterface
+class Sputnik implements MediaInterface
 {
+    public function getName(): string
+    {
+        return 'Sputnik';
+    }
+
     public static function getUrl(): string
     {
-        return 'https://www.lemonde.fr/ukraine';
+        return 'https://sputniknews.com/russian-special-military-op-in-ukraine/';
     }
 
     public static function getLocale(): string
     {
-        return 'fr';
+        return 'en';
     }
 
     public static function getCountry(): string
     {
-        return 'FRA';
+        return 'RU';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #banniere_haute, .gdpr-lmd-wall, iframe {
+            #iubenda-cs-banner, iframe {
                 display: none!important
             }
             body {
@@ -35,6 +40,6 @@ class LeMonde implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'le_monde_%s';
+        return 'sputnik_%s';
     }
 }

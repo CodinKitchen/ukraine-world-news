@@ -1,14 +1,19 @@
 <?php
 
-namespace App\Media\FRA;
+namespace App\Media\FR;
 
 use App\Media\MediaInterface;
 
-class Le20Minutes implements MediaInterface
+class LeFigaro implements MediaInterface
 {
+    public function getName(): string
+    {
+        return 'Le Figaro';
+    }
+
     public static function getUrl(): string
     {
-        return 'https://www.20minutes.fr/monde/ukraine/';
+        return 'https://www.lefigaro.fr/tag/ukraine';
     }
 
     public static function getLocale(): string
@@ -18,13 +23,13 @@ class Le20Minutes implements MediaInterface
 
     public static function getCountry(): string
     {
-        return 'FRA';
+        return 'FR';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #didomi-host, .ad, iframe {
+            #appconsent, .fig-consent-banner, .fig-top, iframe {
                 display: none!important
             }
             body {
@@ -35,6 +40,6 @@ class Le20Minutes implements MediaInterface
 
     public static function getFilename(): string
     {
-        return '20_minutes_%s';
+        return 'le_figaro_%s';
     }
 }

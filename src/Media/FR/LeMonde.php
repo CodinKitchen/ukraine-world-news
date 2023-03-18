@@ -1,14 +1,19 @@
 <?php
 
-namespace App\Media\FRA;
+namespace App\Media\FR;
 
 use App\Media\MediaInterface;
 
-class LeFigaro implements MediaInterface
+class LeMonde implements MediaInterface
 {
+    public function getName(): string
+    {
+        return 'Le Monde';
+    }
+
     public static function getUrl(): string
     {
-        return 'https://www.lefigaro.fr/tag/ukraine';
+        return 'https://www.lemonde.fr/ukraine';
     }
 
     public static function getLocale(): string
@@ -18,13 +23,13 @@ class LeFigaro implements MediaInterface
 
     public static function getCountry(): string
     {
-        return 'FRA';
+        return 'FR';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #appconsent, .fig-consent-banner, .fig-top, iframe {
+            #banniere_haute, .gdpr-lmd-wall, iframe {
                 display: none!important
             }
             body {
@@ -35,6 +40,6 @@ class LeFigaro implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'le_figaro_%s';
+        return 'le_monde_%s';
     }
 }

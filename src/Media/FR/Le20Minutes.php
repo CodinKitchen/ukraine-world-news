@@ -1,30 +1,35 @@
 <?php
 
-namespace App\Media\USA;
+namespace App\Media\FR;
 
 use App\Media\MediaInterface;
 
-class NewYorkTimes implements MediaInterface
+class Le20Minutes implements MediaInterface
 {
+    public function getName(): string
+    {
+        return '20 minutes';
+    }
+
     public static function getUrl(): string
     {
-        return 'https://www.nytimes.com/topic/destination/ukraine';
+        return 'https://www.20minutes.fr/monde/ukraine/';
     }
 
     public static function getLocale(): string
     {
-        return 'en';
+        return 'fr';
     }
 
     public static function getCountry(): string
     {
-        return 'USA';
+        return 'FR';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            .gdpr, iframe {
+            #didomi-host, .ad, iframe {
                 display: none!important
             }
             body {
@@ -35,6 +40,6 @@ class NewYorkTimes implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'new_york_times_%s';
+        return '20_minutes_%s';
     }
 }
