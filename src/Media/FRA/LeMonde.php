@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Media;
+namespace App\Media\FRA;
 
-class Le20Minutes implements MediaInterface
+use App\Media\MediaInterface;
+
+class LeMonde implements MediaInterface
 {
     public static function getUrl(): string
     {
-        return 'https://www.20minutes.fr/monde/ukraine/';
+        return 'https://www.lemonde.fr/ukraine';
     }
 
     public static function getLocale(): string
@@ -22,14 +24,17 @@ class Le20Minutes implements MediaInterface
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            iframe {
+            #banniere_haute, .gdpr-lmd-wall, iframe {
                 display: none!important
+            }
+            body {
+                margin-top: 0px!important
             }
         CSS;
     }
 
     public static function getFilename(): string
     {
-        return '20_minutes_%s';
+        return 'le_monde_%s';
     }
 }

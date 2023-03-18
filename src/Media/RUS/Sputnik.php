@@ -1,35 +1,40 @@
 <?php
 
-namespace App\Media;
+namespace App\Media\RUS;
 
-class LeFigaro implements MediaInterface
+use App\Media\MediaInterface;
+
+class Sputnik implements MediaInterface
 {
     public static function getUrl(): string
     {
-        return 'https://www.lefigaro.fr/tag/ukraine';
+        return 'https://sputniknews.com/russian-special-military-op-in-ukraine/';
     }
 
     public static function getLocale(): string
     {
-        return 'fr';
+        return 'en';
     }
 
     public static function getCountry(): string
     {
-        return 'FRA';
+        return 'RUS';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #appconsent, .fig-consent-banner, .fig-top, iframe {
+            #iubenda-cs-banner, iframe {
                 display: none!important
+            }
+            body {
+                margin-top: 0px!important
             }
         CSS;
     }
 
     public static function getFilename(): string
     {
-        return 'le_figaro_%s';
+        return 'sputnik_%s';
     }
 }

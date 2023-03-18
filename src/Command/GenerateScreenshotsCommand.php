@@ -19,6 +19,8 @@ class GenerateScreenshotsCommand extends Command
 {
     private const TARGET_PATH = 'public/captures/';
 
+    private const PAGERES_BIN = 'node_modules/.bin/pageres';
+
     /**
      * @param iterable<MediaInterface> $medias
      */
@@ -32,7 +34,7 @@ class GenerateScreenshotsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         foreach ($this->medias as $media) {
-            $process = new Process(['node_modules/.bin/pageres', $media->getUrl(), '--css=' . $media->getCustomCss(), '--crop', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $media->getLocale())]);
+            $process = new Process([self::PAGERES_BIN, $media->getUrl(), '390x844', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $media->getLocale())]);
             $process->run();
 
             if (!$process->isSuccessful()) {
@@ -43,7 +45,7 @@ class GenerateScreenshotsCommand extends Command
                 if ($locale === $media->getLocale()) {
                     continue;
                 }
-                $process = new Process(['node_modules/.bin/pageres', 'https://translate.google.com/translate?sl=' . $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl(), '--css=' . $media->getCustomCss(), '--crop', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $locale)]);
+                $process = new Process([self::PAGERES_BIN, 'https://translate.google.com/translate?sl=' . $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl(), '390x844', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . self::TARGET_PATH . \sprintf($media->getFilename(), $locale)]);
                 $process->run();
 
                 if (!$process->isSuccessful()) {

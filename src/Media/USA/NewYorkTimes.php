@@ -1,28 +1,30 @@
 <?php
 
-namespace App\Media;
+namespace App\Media\USA;
 
-class LeMonde implements MediaInterface
+use App\Media\MediaInterface;
+
+class NewYorkTimes implements MediaInterface
 {
     public static function getUrl(): string
     {
-        return 'https://www.lemonde.fr/ukraine';
+        return 'https://www.nytimes.com/topic/destination/ukraine';
     }
 
     public static function getLocale(): string
     {
-        return 'fr';
+        return 'en';
     }
 
     public static function getCountry(): string
     {
-        return 'FRA';
+        return 'USA';
     }
 
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #banniere_haute, .gdpr-lmd-wall, iframe {
+            .gdpr, iframe {
                 display: none!important
             }
             body {
@@ -33,6 +35,6 @@ class LeMonde implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'le_monde_%s';
+        return 'new_york_times_%s';
     }
 }
