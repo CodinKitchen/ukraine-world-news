@@ -40,6 +40,6 @@ class TheGuardian implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'the_guardian_%s';
+        return 'the_guardian';
     }
 }

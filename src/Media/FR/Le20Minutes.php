@@ -40,6 +40,6 @@ class Le20Minutes implements MediaInterface
 
     public static function getFilename(): string
     {
-        return '20_minutes_%s';
+        return '20_minutes';
     }
 }

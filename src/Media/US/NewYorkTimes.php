@@ -40,6 +40,6 @@ class NewYorkTimes implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'new_york_times_%s';
+        return 'new_york_times';
     }
 }

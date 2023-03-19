@@ -40,6 +40,6 @@ class LeFigaro implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'le_figaro_%s';
+        return 'le_figaro';
     }
 }

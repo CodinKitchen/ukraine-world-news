@@ -40,6 +40,6 @@ class LeMonde implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'le_monde_%s';
+        return 'le_monde';
     }
 }

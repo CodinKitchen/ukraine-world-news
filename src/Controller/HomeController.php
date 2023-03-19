@@ -29,8 +29,11 @@ class HomeController extends AbstractController
             $mediasByCountry[$media->getCountry()][] = $media;
         }
 
+        // Randomize array while preserving keys
+        \uksort($mediasByCountry, fn ($a, $b) => \random_int(-1, 1));
+
         return $this->render('home/index.html.twig', [
-            'mediasByCountry' => (new \Random\Randomizer())->shuffleArray($mediasByCountry),
+            'mediasByCountry' => $mediasByCountry,
         ]);
     }
 }

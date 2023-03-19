@@ -40,6 +40,6 @@ class Sputnik implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'sputnik_%s';
+        return 'sputnik';
     }
 }
