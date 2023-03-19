@@ -30,7 +30,7 @@ class HomeController extends AbstractController
         }
 
         return $this->render('home/index.html.twig', [
-            'mediasByCountry' => $mediasByCountry
+            'mediasByCountry' => (new \Random\Randomizer())->shuffleArray($mediasByCountry),
         ]);
     }
 }
