@@ -6,11 +6,12 @@ import { Controller } from '@hotwired/stimulus';
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['selector', 'capture']
+    static targets = ['selector', 'capture', 'link']
     
     connect() {
         this.selectorTarget.addEventListener('change', (e) => {
             this.captureTarget.src = `/captures/${e.target.value}.png`;
+            this.linkTarget.href = e.target.selectedOptions[0].dataset.url;
         })
     }
 }
