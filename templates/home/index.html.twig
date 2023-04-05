@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+	<div class="hero">
+		<div class="text-center hero-content">
+			<div class="max-w-2xl">
+				<h1 class="text-5xl font-bold">{{ 'home.title'|trans }}</h1>
+				<p class="py-6">{{ 'home.description'|trans }}</p>
+			</div>
+		</div>
+	</div>
 	<div data-controller="swiper" class="swiper">
 		<div class="swiper-wrapper">
 			{% for country, medias in mediasByCountry %}
 				{% set selectedMedia = random(medias|length - 1) %}
 				<div class="shadow-xl card bg-base-100 swiper-slide" data-controller="media-selector">
 					<div class="card-body">
-						<span class="fi fi-{{ country|lower }}"></span>
-						<select data-media-selector-target="selector" class="w-full max-w-xs select">
-							{% for index, media in medias %}
-								<option {{ selectedMedia == index ? 'selected' }} value="{{ media.country ~ '/' ~ app.request.locale ~ '/' ~ media.filename }}">{{ media.name }}</option>
-							{% endfor %}
-						</select>
+						<div class="flex-row">
+							<span class="fi fi-{{ country|lower }}"></span>
+							<select data-media-selector-target="selector" class="w-full max-w-xs select">
+								{% for index, media in medias %}
+									<option {{ selectedMedia == index ? 'selected' }} value="{{ media.country ~ '/' ~ app.request.locale ~ '/' ~ media.filename }}">{{ media.name }}</option>
+								{% endfor %}
+							</select>
+						</div>
 					</div>
-					<figure><img data-media-selector-target="capture" src="/captures/{{ medias[selectedMedia].country }}/{{ medias[selectedMedia].locale }}/{{medias[selectedMedia].filename ~ '.png' }}"></figure>
+					<figure><img data-media-selector-target="capture" src="/captures/{{ medias[selectedMedia].country }}/{{ app.request.locale }}/{{medias[selectedMedia].filename ~ '.png' }}"></figure>
 				</div>
 			{% endfor %}
 		</div>
