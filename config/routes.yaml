@@ -5,4 +5,4 @@ controllers:
     type: attribute
     prefix: /{_locale}
     requirements:
-        _locale: 'en|fr|ru'
+        _locale: 'en|fr|ru|uk'
