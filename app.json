@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dokku": {
+      "postdeploy": "./post-deploy.sh"
+    }
+  },
+  "cron": [
+    {
+      "command": "php bin/console app:generate-screenshots",
+      "schedule": "0 */2 * * *"
+    }
+  ]
+}
