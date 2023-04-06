@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 #[AsCommand(
@@ -39,7 +38,7 @@ class GenerateScreenshotsCommand extends Command
         foreach ($this->medias as $media) {
             $filesystem->mkdir(\sprintf(self::TARGET_PATH, $media->getCountry(), $media->getLocale()));
             $process = new Process([self::PAGERES_BIN, $media->getUrl(), '390x1266', '--scale=2', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . \sprintf(self::TARGET_PATH, $media->getCountry(), $media->getLocale()) . $media->getFilename()]);
-            $process->run();
+            $process->start();
             $output->writeln(\sprintf('Generating %s screenshot for locale %s', $media->getName(), $media->getLocale()));
             $processes[] = $process;
 
@@ -49,7 +48,7 @@ class GenerateScreenshotsCommand extends Command
                 }
                 $filesystem->mkdir(\sprintf(self::TARGET_PATH, $media->getCountry(), $locale));
                 $process = new Process([self::PAGERES_BIN, 'https://translate.google.com/translate?sl=' . $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl(), '390x1266', '--scale=2', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . \sprintf(self::TARGET_PATH, $media->getCountry(), $locale) . $media->getFilename()]);
-                $process->run();
+                $process->start();
                 $output->writeln(\sprintf('Generating %s screenshot for locale %s', $media->getName(), $locale));
                 $processes[] = $process;
             }

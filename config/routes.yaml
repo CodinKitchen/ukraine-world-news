@@ -6,3 +6,8 @@ controllers:
     prefix: /{_locale}
     requirements:
         _locale: 'en|fr|ru|uk'
+
+
+index:
+    path: /
+    controller: App\Controller\IndexController::index

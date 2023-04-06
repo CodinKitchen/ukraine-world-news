@@ -4,16 +4,16 @@ namespace App\Media\UA;
 
 use App\Media\MediaInterface;
 
-class NovoeVremia implements MediaInterface
+class Korrespondent implements MediaInterface
 {
     public function getName(): string
     {
-        return 'Novoe Vremia';
+        return 'Korrespondent';
     }
 
     public static function getUrl(): string
     {
-        return 'https://nv.ua/ukr/tags/viyna-rosiji-proti-ukrajini.html';
+        return 'https://ua.korrespondent.net/special/2111-viina-rosii-z-ukrainoui';
     }
 
     public static function getLocale(): string
@@ -29,7 +29,7 @@ class NovoeVremia implements MediaInterface
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            iframe {
+            .unit-top-dark-banner, iframe {
                 display: none!important
             }
             body {
@@ -40,6 +40,6 @@ class NovoeVremia implements MediaInterface
 
     public static function getFilename(): string
     {
-        return 'novoe_vremia';
+        return 'korrespondent';
     }
 }

@@ -6,7 +6,6 @@ use App\Media\MediaInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\TaggedIterator;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Intl\Locales;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
