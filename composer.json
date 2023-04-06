@@ -7,6 +7,7 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-intl": "*",
         "geoip2/geoip2": "^2.13",
         "gpslab/geoip2": "^2.0",
         "symfony/console": "6.2.*",
