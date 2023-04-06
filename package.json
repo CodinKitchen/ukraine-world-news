@@ -28,6 +28,7 @@
         "daisyui": "^2.51.4",
         "flag-icons": "^6.6.6",
         "pageres-cli": "^7.0.0",
+        "patch-package": "^6.5.1",
         "swiper": "^9.1.1"
     }
 }

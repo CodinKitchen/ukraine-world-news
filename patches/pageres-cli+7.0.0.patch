@@ -1,0 +1,12 @@
+diff --git a/node_modules/pageres-cli/cli.js b/node_modules/pageres-cli/cli.js
+index 5be18ce..6ab2d66 100755
+--- a/node_modules/pageres-cli/cli.js
++++ b/node_modules/pageres-cli/cli.js
+@@ -96,6 +96,7 @@ const cli = meow(`
+ async function generate(arguments_, options) {
+ 	const pageres = new Pageres({
+ 		incrementalName: !options.overwrite,
++		launchOptions: {args: ['--no-sandbox', '--disable-setuid-sandbox']},
+ 	})
+ 		.destination(process.cwd());
+ 
