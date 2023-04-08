@@ -2,6 +2,8 @@ import { Controller } from '@hotwired/stimulus';
 import Swiper, { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import '../styles/vendor/swiperjs.css';
+
 /*
 * The following line makes this controller "lazy": it won't be downloaded until needed
 * See https://github.com/symfony/stimulus-bridge#lazy-controllers
@@ -19,6 +21,7 @@ export default class extends Controller {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            grabCursor: true,
             breakpoints: {
                 1024: {
                   slidesPerView: 3,

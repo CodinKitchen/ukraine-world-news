@@ -1,0 +1,16 @@
+.swiper-button-next, .swiper-button-prev {
+    @apply rounded-lg;
+    @apply bg-emerald-500;
+    --swiper-theme-color: #fff;
+    width: 3rem;
+    height: 8rem;
+    position: fixed;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-weight: bold;
+}
+
+.swiper-button-disabled {
+    display: none;
+}

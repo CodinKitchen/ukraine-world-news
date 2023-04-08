@@ -13,11 +13,11 @@
 		<div class="swiper-wrapper">
 			{% for country, medias in mediasByCountry %}
 				{% set selectedMedia = random(medias|length - 1) %}
-				<div class="shadow-xl card bg-base-100 swiper-slide" data-controller="media-selector">
+				<div class="shadow-xl card card-compact md:card-normal bg-base-100 swiper-slide" data-controller="media-selector">
 					<div class="card-body">
-						<div class="flex-row">
+						<div class="flex flex-row pl-3 border-2 border-current rounded-md">
 							<span class="fi fi-{{ country|lower }}"></span>
-							<select data-media-selector-target="selector" class="w-full max-w-xs select">
+							<select data-media-selector-target="selector" class="select grow">
 								{% for index, media in medias %}
 									<option {{ selectedMedia == index ? 'selected' }} value="{{ asset(media|media_capture_path(app.request.locale), 'captures') }}" data-url="{{ media|media_url(app.request.locale) }}">{{ media.name }}</option>
 								{% endfor %}
