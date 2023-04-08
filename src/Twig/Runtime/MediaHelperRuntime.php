@@ -11,4 +11,9 @@ class MediaHelperRuntime implements RuntimeExtensionInterface
     {
         return $locale === $media->getLocale() ? $media->getUrl() : 'https://translate.google.com/translate?sl=' . $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl();
     }
+
+    public function generateMediaCapturePath(MediaInterface $media, string $locale): string
+    {
+        return \sprintf('/captures/%s/%s/%s.png', $media->getCountry(), $locale, $media->getFilename());
+    }
 }

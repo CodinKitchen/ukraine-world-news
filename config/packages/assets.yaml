@@ -1,0 +1,6 @@
+framework:
+  assets:
+      packages:
+          captures:
+              base_path: '%kernel.project_dir%/public'
+              version_strategy: 'App\Asset\VersionStrategy\FileTimestampVersionStrategy'

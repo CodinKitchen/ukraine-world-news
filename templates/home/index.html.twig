@@ -19,13 +19,13 @@
 							<span class="fi fi-{{ country|lower }}"></span>
 							<select data-media-selector-target="selector" class="w-full max-w-xs select">
 								{% for index, media in medias %}
-									<option {{ selectedMedia == index ? 'selected' }} value="{{ media.country ~ '/' ~ app.request.locale ~ '/' ~ media.filename }}" data-url="{{ media|media_url(app.request.locale) }}">{{ media.name }}</option>
+									<option {{ selectedMedia == index ? 'selected' }} value="{{ asset(media|media_capture_path(app.request.locale), 'captures') }}" data-url="{{ media|media_url(app.request.locale) }}">{{ media.name }}</option>
 								{% endfor %}
 							</select>
 						</div>
 					</div>
 					<a href="{{ medias[selectedMedia]|media_url(app.request.locale) }}" data-media-selector-target="link">
-						<figure><img data-media-selector-target="capture" src="/captures/{{ medias[selectedMedia].country }}/{{ app.request.locale }}/{{medias[selectedMedia].filename ~ '.png' }}"></figure>
+						<figure><img data-media-selector-target="capture" src="{{ asset(medias[selectedMedia]|media_capture_path(app.request.locale), 'captures') }}"></figure>
 					</a>
 				</div>
 			{% endfor %}

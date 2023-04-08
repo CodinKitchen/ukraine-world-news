@@ -10,7 +10,7 @@ export default class extends Controller {
     
     connect() {
         this.selectorTarget.addEventListener('change', (e) => {
-            this.captureTarget.src = `/captures/${e.target.value}.png`;
+            this.captureTarget.src = e.target.value;
             this.linkTarget.href = e.target.selectedOptions[0].dataset.url;
         })
     }

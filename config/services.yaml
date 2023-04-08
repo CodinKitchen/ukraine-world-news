@@ -27,5 +27,9 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Asset\VersionStrategy\FileTimestampVersionStrategy:
+        arguments:
+            - "%kernel.project_dir%/public"
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
