@@ -25,7 +25,9 @@
 						</div>
 					</div>
 					<a href="{{ medias[selectedMedia]|media_url(app.request.locale) }}" data-media-selector-target="link">
-						<figure><img data-media-selector-target="capture" src="{{ asset(medias[selectedMedia]|media_capture_path(app.request.locale), 'captures') }}"></figure>
+						<figure>
+							<img data-media-selector-target="capture" loading="lazy" srcset="{{ asset(medias[selectedMedia]|media_capture_path(app.request.locale), 'captures') }}" width="390" height="1266">
+						</figure>
 					</a>
 				</div>
 			{% endfor %}
