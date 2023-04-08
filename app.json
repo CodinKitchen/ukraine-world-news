@@ -6,7 +6,7 @@
   },
   "cron": [
     {
-      "command": "php bin/console app:generate-screenshots",
+      "command": "./post-deploy.sh && php bin/console app:generate-screenshots",
       "schedule": "0 */2 * * *"
     }
   ]

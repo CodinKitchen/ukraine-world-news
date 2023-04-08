@@ -21,8 +21,7 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress",
-        "postinstall": "node node_modules/puppeteer/install.js"
+        "build": "encore production --progress"
     },
     "dependencies": {
         "daisyui": "^2.51.4",
