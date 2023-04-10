@@ -1,2 +1,2 @@
 node node_modules/puppeteer/install.js
-patch-package
+node_modules/.bin/patch-package
