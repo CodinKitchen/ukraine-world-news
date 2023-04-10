@@ -3,15 +3,5 @@
     "dokku": {
       "postdeploy": "./post-deploy.sh"
     }
-  },
-  "cron": [
-    {
-      "command": "./post-deploy.sh && php bin/console app:generate-screenshots",
-      "schedule": "0 */2 * * *"
-    },
-    {
-      "command": "php bin/console geoip2:update",
-      "schedule": "0 */1 * * *"
-    }
-  ]
+  }
 }
