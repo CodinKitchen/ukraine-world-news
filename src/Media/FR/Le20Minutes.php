@@ -29,7 +29,7 @@ class Le20Minutes implements MediaInterface
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #didomi-host, .ad, iframe {
+            #didomi-host, .ad, .topic, iframe {
                 display: none!important
             }
             body {

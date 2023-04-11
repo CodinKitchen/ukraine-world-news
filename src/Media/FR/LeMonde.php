@@ -29,7 +29,7 @@ class LeMonde implements MediaInterface
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #banniere_haute, .gdpr-lmd-wall, iframe {
+            #banniere_haute, .gdpr-lmd-wall, header .right, iframe {
                 display: none!important
             }
             body {

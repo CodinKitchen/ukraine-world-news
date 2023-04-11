@@ -29,7 +29,7 @@ class LeFigaro implements MediaInterface
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            #appconsent, .fig-consent-banner, .fig-top, iframe {
+            #appconsent, .fig-consent-banner, .fig-top, #app-banner, iframe {
                 display: none!important
             }
             body {
