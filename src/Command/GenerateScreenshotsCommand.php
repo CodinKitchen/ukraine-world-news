@@ -36,18 +36,9 @@ class GenerateScreenshotsCommand extends Command
         $filesystem = new Filesystem();
         $processes = [];
         foreach ($this->medias as $media) {
-            $filesystem->mkdir(\sprintf(self::TARGET_PATH, $media->getCountry(), $media->getLocale()));
-            $process = new Process([self::PAGERES_BIN, $media->getUrl(), '390x1266', '--scale=2', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . \sprintf(self::TARGET_PATH, $media->getCountry(), $media->getLocale()) . $media->getFilename()]);
-            $process->start();
-            $output->writeln(\sprintf('Generating %s screenshot for locale %s', $media->getName(), $media->getLocale()));
-            $processes[] = $process;
-
             foreach ($this->supportedLocales as $locale) {
-                if ($locale === $media->getLocale()) {
-                    continue;
-                }
                 $filesystem->mkdir(\sprintf(self::TARGET_PATH, $media->getCountry(), $locale));
-                $process = new Process([self::PAGERES_BIN, 'https://translate.google.com/translate?sl=' . $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl(), '390x1266', '--scale=2', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . \sprintf(self::TARGET_PATH, $media->getCountry(), $locale) . $media->getFilename()]);
+                $process = new Process([self::PAGERES_BIN, 'https://translate.google.com/translate?sl=' . $media->getLocale() === $locale ? 'auto' : $media->getLocale() . '&tl=' . $locale . '&u=' . $media->getUrl(), '390x1266', '--scale=2', '--css=' . $media->getCustomCss(), '--crop', '--overwrite', '--filename=' . \sprintf(self::TARGET_PATH, $media->getCountry(), $locale) . $media->getFilename()]);
                 $process->start();
                 $output->writeln(\sprintf('Generating %s screenshot for locale %s', $media->getName(), $locale));
                 $processes[] = $process;
@@ -63,7 +54,6 @@ class GenerateScreenshotsCommand extends Command
                 sleep(1);
             }
         }
-
 
         return Command::SUCCESS;
     }
