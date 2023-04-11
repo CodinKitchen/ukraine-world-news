@@ -29,7 +29,7 @@ class Korrespondent implements MediaInterface
     public static function getCustomCss(): string|null
     {
         return <<<'CSS'
-            .unit-top-dark-banner, .mgbox, iframe {
+            .unit-top-dark-banner, .mgbox, .achernar__wrapper, iframe {
                 display: none!important
             }
             body {
