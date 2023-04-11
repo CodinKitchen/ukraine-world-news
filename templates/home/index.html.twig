@@ -17,7 +17,7 @@
 					<div class="card-body">
 						<div class="flex flex-row pl-3 border-2 border-current rounded-md">
 							<span class="fi fi-{{ country|lower }}"></span>
-							<select data-media-selector-target="selector" class="select grow">
+							<select data-media-selector-target="selector" class="outline-disabled select grow">
 								{% for index, media in medias %}
 									<option {{ selectedMedia == index ? 'selected' }} value="{{ asset(media|media_capture_path(app.request.locale), 'captures') }}" data-url="{{ media|media_url(app.request.locale) }}">{{ media.name }}</option>
 								{% endfor %}
