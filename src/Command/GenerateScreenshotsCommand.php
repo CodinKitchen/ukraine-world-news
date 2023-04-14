@@ -34,6 +34,7 @@ class GenerateScreenshotsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $filesystem = new Filesystem();
+        /** @var Process[] $processes */
         $processes = [];
         foreach ($this->medias as $media) {
             foreach ($this->supportedLocales as $locale) {
@@ -48,6 +49,9 @@ class GenerateScreenshotsCommand extends Command
                 $output->writeln('Checking processes...');
                 foreach ($processes as $index => $process) {
                     if (!$process->isRunning()) {
+                        if (!$process->isSuccessful()) {
+                            $output->writeln($process->getErrorOutput());
+                        }
                         unset($processes[$index]);
                     }
                 }
