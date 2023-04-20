@@ -6,3 +6,4 @@ gpslab_geoip:
 
     # Edition ID of database you need
     edition: 'GeoLite2-Country'
+    path: '%kernel.project_dir%/geoip/GeoLite2-Country.mmdb'
