@@ -17,7 +17,7 @@ class HomeController extends AbstractController
     {
     }
 
-    #[Route('/', name: 'home')]
+    #[Route('/{_locale}', name: 'home')]
     public function index(): Response
     {
         $mediasByCountry = [];
