@@ -10,8 +10,10 @@ use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/commands', name: 'app_commands')]
+#[IsGranted('ROLE_ADMIN')]
 class CommandsController extends AbstractController
 {
     #[Route('/generate-screenshots', name: 'command_generate_screenshot')]
