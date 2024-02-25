@@ -13,6 +13,10 @@
         <source>home.description</source>
         <target>Comparez les actualités sur le conflit Ukraine-Russie partout dans le monde pour vous faire votre propre opinion.</target>
       </trans-unit>
+      <trans-unit id="1sw6uYU" resname="capture.date">
+        <source>capture.date</source>
+        <target>Image capturée le {date} à {time}</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -13,6 +13,10 @@
         <source>home.description</source>
         <target>Порівнюйте новини про українсько-російський конфлікт у всьому світі, щоб скласти власну думку.</target>
       </trans-unit>
+      <trans-unit id="1sw6uYU" resname="capture.date">
+        <source>capture.date</source>
+        <target>Зображення зроблено {date} о {time}</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -14,6 +14,7 @@ class MediaHelperExtension extends AbstractExtension
         return [
             new TwigFilter('media_url', [MediaHelperRuntime::class, 'generateMediaUrl']),
             new TwigFilter('media_capture_path', [MediaHelperRuntime::class, 'generateMediaCapturePath']),
+            new TwigFilter('media_date', [MediaHelperRuntime::class, 'getMediaDate']),
         ];
     }
 
@@ -22,6 +23,7 @@ class MediaHelperExtension extends AbstractExtension
         return [
             new TwigFunction('media_url', [MediaHelperRuntime::class, 'generateMediaUrl']),
             new TwigFunction('media_capture_path', [MediaHelperRuntime::class, 'generateMediaCapturePath']),
+            new TwigFunction('media_date', [MediaHelperRuntime::class, 'getMediaDate']),
         ];
     }
 }

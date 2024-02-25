@@ -25,8 +25,14 @@
 						</div>
 					</div>
 					<a href="{{ medias[selectedMedia]|media_url(app.request.locale) }}" data-media-selector-target="link">
-						<figure>
+						<figure class="flex flex-col-reverse gap-2">
 							<img data-media-selector-target="capture" loading="lazy" srcset="{{ asset(medias[selectedMedia]|media_capture_path(app.request.locale), 'captures') }}" width="390" height="1266">
+							<figcaption data-media-selector-target="caption">{{ 'capture.date'|trans(
+								{
+									date: medias[selectedMedia]|media_date(app.request.locale)|format_datetime('short', 'none', locale=app.request.locale),
+									time: medias[selectedMedia]|media_date(app.request.locale)|format_datetime('none', 'short', locale=app.request.locale)
+								}
+							) }}</figcaption>
 						</figure>
 					</a>
 				</div>
