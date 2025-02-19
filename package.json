@@ -17,6 +17,7 @@
     },
     "license": "UNLICENSED",
     "private": true,
+    "packageManager": "yarn@4.6.0",
     "scripts": {
         "dev-server": "encore dev-server",
         "dev": "encore dev",

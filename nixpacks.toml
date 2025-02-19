@@ -1,0 +1,5 @@
+[phases.setup]
+nixPkgs = [
+  "...",
+  '(lib.recursiveUpdate php83Packages.composer { meta.priority = php83Packages.composer.meta.priority or 0 -1; })',
+]
